@@ -16,11 +16,12 @@
   <div class="chat" id="chatBox"></div>
   <div class="input-area">
     <input type="text" id="messageInput" placeholder="Type a message..." />
-    <button onclick="sendMessage()">Send</button>
+    <button id="sendBtn">Send</button>
   </div>
 
   <script>
     const chatBox = document.getElementById('chatBox');
+    const sendBtn = document.getElementById('sendBtn');
 
     function appendMessage(sender, message) {
       const msgDiv = document.createElement('div');
@@ -51,6 +52,8 @@
         console.error(err);
       }
     }
+
+    sendBtn.addEventListener('click', sendMessage);
   </script>
 </body>
 </html>
