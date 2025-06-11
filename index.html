@@ -19,6 +19,7 @@
     <button id="sendBtn">Send</button>
   </div>
 
+  <!-- ✅ Put the script at the END of body -->
   <script>
     const chatBox = document.getElementById('chatBox');
     const sendBtn = document.getElementById('sendBtn');
@@ -53,6 +54,7 @@
       }
     }
 
+    // ✅ Attach the click handler AFTER the function is defined
     sendBtn.addEventListener('click', sendMessage);
   </script>
 </body>
