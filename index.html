@@ -38,19 +38,4 @@
       input.value = '';
 
       try {
-        const res = await fetch('https://vvpoulsen.app.n8n.cloud/webhook/26b0ef7a-c363-4f4c-97de-d38f2570c554', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message })
-        });
-
-        const data = await res.json();
-        appendMessage('Bot', data.reply || '[No reply]');
-      } catch (err) {
-        appendMessage('Bot', '[Error contacting n8n]');
-        console.error(err);
-      }
-    }
-  </script>
-</body>
-</html>
+        const res = await fetch('https://vvpoulsen.app.n8n.cloud/webhook/26b0ef7a-c363-4
