@@ -5,7 +5,7 @@
   <title>n8n Chatbot</title>
   <style>
     body { font-family: sans-serif; max-width: 600px; margin: 40px auto; }
-    .chat { border: 1px solid #ccc; padding: 10px; height: 400px; overflow-y: scroll; }
+    .chat { border: 1px solid #ccc; padding: 10px; height: 400px; overflow-y: auto; }
     .input-area { margin-top: 10px; display: flex; }
     input { flex: 1; padding: 8px; }
     button { padding: 8px 12px; }
@@ -38,4 +38,19 @@
       input.value = '';
 
       try {
-        const res = await fetch('https://vvpoulsen.app.n8n.cloud/webhook/26b0ef7a-c363-4
+        const res = await fetch('https://vvpoulsen.app.n8n.cloud/webhook/26b0ef7a-c363-4f4c-97de-d38f2570c554', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message })
+        });
+
+        const data = await res.json();
+        appendMessage('Bot', data.reply || '[No reply]');
+      } catch (err) {
+        appendMessage('Bot', '[Error contacting n8n]');
+        console.error(err);
+      }
+    }
+  </script>
+</body>
+</html>
